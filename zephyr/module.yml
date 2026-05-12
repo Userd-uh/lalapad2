@@ -4,9 +4,9 @@ build:
     dts_root: remap_lalapad_tdq
   cmake: remap_lalapad_tdq
   kconfig: remap_lalapad_tdq/Kconfig
-//build:
-//  cmake: .
-//  kconfig: Kconfig
-//  settings:
-//    board_root: config
-//    dts_root: .
+#build:
+#  cmake: .
+#  kconfig: Kconfig
+#  settings:
+#    board_root: config
+#    dts_root: .
