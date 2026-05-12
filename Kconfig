@@ -1,3 +1,0 @@
-rsource "drivers/Kconfig"
-rsource "behaviors/Kconfig"
-rsource "input_processors/Kconfig"
