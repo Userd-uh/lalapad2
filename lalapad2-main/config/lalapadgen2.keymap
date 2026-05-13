@@ -167,8 +167,8 @@
             display-name = "secondary_layer";
             bindings = <
             &trans  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_PLUS  &kp KP_NUMLOCK  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_PLUS
-            &trans  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_MINUS  &trans  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS
-            &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_ASTERISK  &trans  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ASTERISK
+            &trans  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_MINUS  &kp HASH  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS
+            &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_ASTERISK  &kp AT  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ASTERISK
             &trans  &kp NUMBER_0  &trans  &trans  &kp KP_DIVIDE  &kp KP_EQUAL  &kp DEL  &trans  &trans  &kp KP_NUMBER_0  &kp KP_DOT  &kp KP_DIVIDE
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
@@ -205,9 +205,9 @@
         mouse_layer {
             display-name = "mouse_layer";
             bindings = <
-            &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
-            &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
-            &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
+            &to 0  &to 0  &to 0  &to 0  &to 0  &kp MINUS  &kp EQUAL  &to 0  &to 0  &to 0
+            &to 0  &to 0  &to 0  &to 0  &to 0  &kp R  &kp DELETE  &to 0  &to 0  &to 0
+            &to 0  &to 0  &to 0  &to 0  &to 0  &mkp MB4  &mkp MB5  &to 0  &to 0  &to 0
             &to 0  &to 0  &to 0  &to 0  &mkp LCLK  &mkp RCLK  &mkp LCLK  &mkp RCLK  &to 0  &to 0  &to 0  &to 0
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
             &mkp LCLK  &mkp RCLK  &to 0  &mkp LCLK  &mkp RCLK  &to 0
