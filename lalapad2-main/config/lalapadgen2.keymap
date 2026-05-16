@@ -154,35 +154,35 @@
             display-name = "Default";
             bindings = <
             &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &mt2 MINUS O  &mt2 EQUAL P
-            &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &mt2 LEFT_BRACKET K  &mt2 RIGHT_BRACKET L  &mt2 ENTER BACKSLASH
+            &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &mt2 LEFT_BRACKET K  &mt2 RIGHT_BRACKET L  &mt2 RETURN RIGHT_BRACKET
             &mt2 LEFT_SHIFT Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &mt2 SEMI COMMA  &mt2 SQT PERIOD  &mt2 RIGHT_SHIFT SLASH
-            &kp LCTRL  &kp LWIN  &mt2 LEFT_ALT LANGUAGE_2  &kp SPACE  &mo 1  &mo 3  &mo 1  &mo 2  &kp SPACE  &mt2 RIGHT_ALT LANGUAGE_1  &mo 3  &kp BACKSLASH
+            &kp LCTRL  &kp LWIN  &kp LALT  &kp SPACE  &mo 1  &mo 2  &mo 1  &mo 2  &kp SPACE  &kp RALT  &kp RIGHT_CONTROL  &kp BACKSLASH
             &none  &kp RIGHT  &kp DOWN  &kp LEFT  &kp UP  &kp UP  &kp LEFT  &kp DOWN  &kp RIGHT  &none
-            &mkp LCLK  &mkp RCLK  &mkp MCLK  &mkp LCLK  &mkp RCLK  &mkp MCLK
-            &mkp MB4  &mkp MB5  &kp LG(TAB)  &kp LG(D)  &kp LCTRL  &mkp MB4  &mkp MB5  &kp LG(TAB)  &kp LG(D)  &kp LCTRL
+            &behavior_1 1 0  &behavior_1 2 0  &behavior_1 4 0  &behavior_1 1 0  &behavior_1 2 0  &behavior_1 4 0
+            &behavior_1 8 0  &behavior_1 16 0  &kp LG(TAB)  &kp LG(D)  &kp LCTRL  &behavior_1 8 0  &behavior_1 16 0  &kp LG(TAB)  &kp LG(D)  &kp LCTRL
             >;
         };
 
         secondary_layer {
             display-name = "secondary_layer";
             bindings = <
-            &trans  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_PLUS  &kp KP_NUMLOCK  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_PLUS
-            &trans  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_MINUS  &kp HASH  &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MINUS
-            &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_ASTERISK  &kp AT  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp KP_ASTERISK
-            &trans  &kp NUMBER_0  &trans  &trans  &kp KP_DIVIDE  &kp KP_EQUAL  &kp DEL  &trans  &trans  &kp KP_NUMBER_0  &kp KP_DOT  &kp KP_DIVIDE
+            &trans  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_PLUS  &kp KP_NUMLOCK  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp KP_PLUS
+            &trans  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_MINUS  &kp HASH  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp KP_MINUS
+            &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_ASTERISK  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_ASTERISK
+            &trans  &kp NUMBER_0  &trans  &trans  &kp KP_DIVIDE  &kp KP_EQUAL  &kp DELETE  &trans  &trans  &kp KP_NUMBER_0  &kp KP_DOT  &kp KP_DIVIDE
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
-            &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &trans  &trans  &trans  &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &trans  &trans  &trans
+            &kp LEFT  &kp RIGHT  &trans  &trans  &trans  &kp LEFT  &kp RIGHT  &trans  &trans  &trans
             >;
         };
 
         tertiary_layer {
             display-name = "tertiary_layer";
             bindings = <
-            &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT  &kp PAGE_UP  &kp HOME  &kp UP_ARROW  &kp END  &kp PRINTSCREEN
-            &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp PAGE_DOWN  &kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &kp SCROLLLOCK
-            &kp GRAVE  &kp SQT  &kp SEMI  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans  &mkp MB4  &trans  &mkp MB5  &kp PAUSE_BREAK
-            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            &kp EXCL  &kp LS(NUMBER_2)  &kp HASH  &kp DLLR  &kp PRCNT  &kp PAGE_UP  &kp HOME  &kp UP  &kp END  &kp PRINTSCREEN
+            &kp LS(NUMBER_6)  &kp LS(NUMBER_7)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp LS(NUMBER_0)  &kp PAGE_DOWN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp SCROLLLOCK
+            &kp GRAVE  &kp LS(NUMBER_9)  &kp LS(NUMBER_0)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp NUMBER_6  &trans  &trans  &trans  &kp PAUSE_BREAK
+            &kp SEMI  &kp SQT  &kp COMMA  &kp PERIOD  &kp SLASH  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -192,10 +192,10 @@
         system_layer {
             display-name = "system_layer";
             bindings = <
-            &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
-            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &sys_reset  &bootloader  &bt BT_CLR  &bt BT_CLR_ALL  &trans
-            &kp F11  &kp F12  &kp F13  &kp F14  &kp F15  &zip_dyn_scale ZDS_XY ZDS_INC  &zip_dyn_scale ZDS_XY ZDS_DEC  &zip_dyn_scale ZDS_SC ZDS_INC  &zip_dyn_scale ZDS_SC ZDS_DEC  &zip_dyn_scale ZDS_ALL ZDS_RST
-            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &behavior_26 0 0  &behavior_24 3 0  &behavior_24 3 1  &behavior_24 3 2  &behavior_24 3 3
+            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &behavior_27 0 0  &behavior_25 0 0  &behavior_24 0 0  &behavior_24 4 0  &trans
+            &kp F11  &kp F12  &kp F13  &kp F14  &kp F15  &behavior_28 0 1  &behavior_28 0 2  &behavior_28 1 1  &behavior_28 1 2  &behavior_28 2 3
+            &trans  &trans  &trans  &trans  &trans  &trans  &to 0  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -207,11 +207,11 @@
             bindings = <
             &to 0  &to 0  &to 0  &to 0  &to 0  &kp MINUS  &kp EQUAL  &to 0  &to 0  &to 0
             &to 0  &to 0  &to 0  &to 0  &to 0  &kp R  &kp DELETE  &to 0  &to 0  &to 0
-            &to 0  &to 0  &to 0  &to 0  &to 0  &mkp MB4  &mkp MB5  &to 0  &to 0  &to 0
-            &to 0  &to 0  &to 0  &to 0  &mkp LCLK  &mkp RCLK  &mkp LCLK  &mkp RCLK  &to 0  &to 0  &to 0  &to 0
+            &to 0  &to 0  &to 0  &to 0  &to 0  &behavior_1 8 0  &behavior_1 16 0  &to 0  &to 0  &to 0
+            &to 0  &to 0  &to 0  &to 0  &behavior_1 1 0  &behavior_1 2 0  &behavior_1 1 0  &behavior_1 2 0  &to 0  &to 0  &to 0  &to 0
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
-            &mkp LCLK  &mkp RCLK  &to 0  &mkp LCLK  &mkp RCLK  &to 0
-            &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &to 0  &to 0  &to 0  &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &to 0  &to 0  &to 0
+            &behavior_1 1 0  &behavior_1 2 0  &to 0  &behavior_1 1 0  &behavior_1 2 0  &to 0
+            &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
             >;
         };
     };
