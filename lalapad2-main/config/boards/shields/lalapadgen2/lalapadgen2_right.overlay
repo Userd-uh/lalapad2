@@ -22,9 +22,3 @@
 &trackpad_listener_L {
     status = "okay";
 };
-&trackpad_layer_on_motion {
-    status = "okay";
-};
-&trackpad_layer_on_button {
-    status = "okay";
-};

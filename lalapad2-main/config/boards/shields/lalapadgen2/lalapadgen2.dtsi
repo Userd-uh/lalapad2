@@ -136,37 +136,6 @@
                     >;
     };
 
-    trackpad_layer_on_motion: trackpad_layer_on_motion {
-        compatible = "zmk,input-processor-layer-timeout";
-        status = "disabled";
-        #input-processor-cells = <0>;
-        type = <INPUT_EV_REL>;
-        codes = <INPUT_REL_X INPUT_REL_Y INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
-        layer = <4>;
-        timeout-ms = <2000>;
-        timeout-layer = <0>;
-    };
-
-    trackpad_layer_on_button: trackpad_layer_on_button {
-        compatible = "zmk,input-processor-layer-timeout";
-        status = "disabled";
-        #input-processor-cells = <0>;
-        type = <INPUT_EV_KEY>;
-        codes = <
-                    INPUT_BTN_0
-                    INPUT_BTN_1
-                    INPUT_BTN_2
-                    INPUT_BTN_3
-                    INPUT_BTN_4
-                    INPUT_BTN_5
-                    INPUT_BTN_6
-                    INPUT_BTN_7
-                    >;
-        layer = <4>;
-        timeout-ms = <2000>;
-        timeout-layer = <0>;
-    };
-    
     zip_dynamic_xy_scaler: zip_dynamic_xy_scaler {
         compatible = "zmk,input-processor-dynamic-scaler";
         #input-processor-cells = <0>;
@@ -189,8 +158,7 @@
         compatible = "zmk,input-listener";
         status = "disabled";
         device = <&trackpad_split_R>;
-        input-processors = <&trackpad_layer_on_motion>,
-                           <&trackpad_layer_on_button>,
+        input-processors = <&zip_temp_layer 4 2000>,
                            <&trackpad_key_behaviors_R>,
                            <&zip_xy_scaler 1 5>,
                            <&zip_scroll_scaler 1 12>,
@@ -198,8 +166,7 @@
                            <&zip_dynamic_scroll_scaler>;
         lowspeedmode {
             layers = <1>,<2>;
-            input-processors =  <&trackpad_layer_on_motion>,
-                                <&trackpad_layer_on_button>,
+            input-processors =  <&zip_temp_layer 4 2000>,
                                 <&trackpad_key_behaviors_R>,
                                 <&zip_xy_scaler 1 15>,
                                 <&zip_scroll_scaler 1 40>,
@@ -211,8 +178,7 @@
         compatible = "zmk,input-listener";
         status = "disabled";
         device = <&trackpad_split_L>;
-        input-processors = <&trackpad_layer_on_motion>,
-                           <&trackpad_layer_on_button>,
+        input-processors = <&zip_temp_layer 4 2000>,
                            <&trackpad_key_behaviors_L>,
                            <&zip_xy_scaler 1 5>,
                            <&zip_scroll_scaler 1 12>,
@@ -220,8 +186,7 @@
                            <&zip_dynamic_scroll_scaler>;
         lowspeedmode {
             layers = <1>,<2>;
-            input-processors =  <&trackpad_layer_on_motion>,
-                                <&trackpad_layer_on_button>,
+            input-processors =  <&zip_temp_layer 4 2000>,
                                 <&trackpad_key_behaviors_L>,
                                 <&zip_xy_scaler 1 15>,
                                 <&zip_scroll_scaler 1 40>,
