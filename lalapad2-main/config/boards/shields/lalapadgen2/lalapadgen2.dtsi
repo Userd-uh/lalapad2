@@ -144,7 +144,7 @@
         codes = <INPUT_REL_X INPUT_REL_Y INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
         bindings = <&to 4>;
         timeout-ms = <2000>;
-        timeout-layer = <0>;
+        timeout-bindings = <&to 0>;
     };
 
     trackpad_layer_on_button: trackpad_layer_on_button {
@@ -164,7 +164,7 @@
                     >;
         bindings = <&to 4>;
         timeout-ms = <2000>;
-        timeout-layer = <0>;
+        timeout-bindings = <&to 0>;
     };
     
     zip_dynamic_xy_scaler: zip_dynamic_xy_scaler {
