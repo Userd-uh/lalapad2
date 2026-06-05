@@ -38,6 +38,12 @@
             bindings = <&kp>, <&kp>;
         };
 
+        mouse_exit_lctrl: mouse_exit_lctrl {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&to 0>, <&macro_press &kp LCTRL>, <&macro_pause_for_release>, <&macro_release &kp LCTRL>;
+        };
+
         tap_dance_layer_1and2: tap_dance_layer_1and2 {
             compatible = "zmk,behavior-tap-dance";
             label = "td_mo12";
@@ -208,7 +214,7 @@
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
-            &to 0  &to 0  &to 0  &to 0  &mkp LCLK  &mkp RCLK  &mkp LCLK  &mkp RCLK  &to 0  &to 0  &to 0  &to 0
+            &mouse_exit_lctrl  &to 0  &to 0  &to 0  &mkp LCLK  &mkp RCLK  &mkp LCLK  &mkp RCLK  &to 0  &to 0  &to 0  &to 0
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
             &mkp LCLK  &mkp RCLK  &to 0  &mkp LCLK  &mkp RCLK  &to 0
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
