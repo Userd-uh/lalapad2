@@ -38,12 +38,6 @@
             bindings = <&kp>, <&kp>;
         };
 
-        mouse_exit_lctrl: mouse_exit_lctrl {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&to 0>, <&macro_press &kp LCTRL>, <&macro_pause_for_release>, <&macro_release &kp LCTRL>;
-        };
-
         tap_dance_layer_1and2: tap_dance_layer_1and2 {
             compatible = "zmk,behavior-tap-dance";
             label = "td_mo12";
@@ -151,6 +145,10 @@
             bindings = <&kp F7>;
             key-positions = <5 6>;
         };
+        COMBO_7 {
+            bindings = <&kp DELETE>;
+            key-positions = <9 19>;
+        };
     };
 
     keymap {
@@ -185,10 +183,10 @@
         tertiary_layer {
             display-name = "tertiary_layer";
             bindings = <
-            &kp EXCL  &kp LS(NUMBER_2)  &kp HASH  &kp DLLR  &kp PRCNT  &kp PAGE_UP  &kp HOME  &kp UP  &kp END  &kp PRINTSCREEN
-            &kp LS(NUMBER_6)  &kp LS(NUMBER_7)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp LS(NUMBER_0)  &kp PAGE_DOWN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp SCROLLLOCK
-            &kp GRAVE  &kp LS(NUMBER_9)  &kp LS(NUMBER_0)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp NUMBER_6  &trans  &trans  &trans  &kp PAUSE_BREAK
-            &kp SEMI  &kp SQT  &kp COMMA  &kp PERIOD  &kp SLASH  &trans  &trans  &trans  &trans  &trans  &trans  &kp INSERT
+            &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+            &kp LS(NUMBER_6)  &kp LS(NUMBER_7)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp F6  &kp LEFT  &kp UP  &kp RIGHT  &trans  &kp F12
+            &kp LEFT_SHIFT  &kp LS(NUMBER_9)  &kp LS(NUMBER_0)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
+            &kp SEMI  &kp SQT  &kp COMMA  &kp PERIOD  &kp SLASH  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -211,13 +209,13 @@
         mouse_layer {
             display-name = "mouse_layer";
             bindings = <
-            &to 0  &to 0  &to 0  &to 0  &to 0  &kp MINUS  &kp EQUAL  &to 0  &to 0  &to 0
-            &to 0  &to 0  &to 0  &to 0  &to 0  &kp R  &kp DELETE  &to 0  &to 0  &to 0
-            &to 0  &to 0  &to 0  &to 0  &to 0  &mkp MB4  &mkp MB5  &to 0  &to 0  &to 0
-            &mouse_exit_lctrl  &to 0  &to 0  &to 0  &mkp LCLK  &mkp RCLK  &mkp LCLK  &mkp RCLK  &to 0  &to 0  &to 0  &to 0
-            &kp LA(LEFT)  &kp LA(RIGHT)  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
-            &mkp LCLK  &mkp RCLK  &to 0  &mkp LCLK  &mkp RCLK  &to 0
+            &kp I  &kp W  &kp E  &kp R  &kp T  &kp MINUS  &kp EQUAL  &kp I  &kp O  &kp P
+            &kp A  &kp S  &kp D  &kp F  &kp G  &kp R  &kp DELETE  &kp K  &kp L  &to 0
+            &mt2 LEFT_SHIFT Z  &kp X  &kp C  &kp V  &kp B  &mkp MB4  &mkp MB5  &to 0  &to 0  &to 0
+            &kp LEFT_CONTROL  &kp LWIN  &kp LEFT_ALT  &kp SPACE  &mkp LCLK  &mkp RCLK  &mkp LCLK  &mkp RCLK  &kp SPACE  &kp RIGHT_ALT  &to 0  &to 0
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
+            &mkp LCLK  &mkp RCLK  &to 0  &mkp LCLK  &mkp RCLK  &to 0
+            &kp LA(LEFT)  &kp LA(RIGHT)  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
             >;
         };
     };
