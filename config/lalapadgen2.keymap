@@ -32,7 +32,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <400>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <200>;
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
@@ -173,7 +173,7 @@
             &trans  &trans  &kp UP  &trans  &trans  &trans  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp MINUS
             &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &kp HASH  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL
             &kp LEFT_SHIFT  &trans  &trans  &trans  &trans  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_ASTERISK
-            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp NUMBER_0  &kp PERIOD  &kp KP_DIVIDE
+            &kp LEFT_CONTROL  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp NUMBER_0  &kp PERIOD  &kp KP_DIVIDE
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
             &kp LEFT  &kp RIGHT  &trans  &trans  &trans  &kp LEFT  &kp RIGHT  &trans  &trans  &trans
@@ -211,7 +211,7 @@
             bindings = <
             &kp I  &kp W  &kp E  &kp R  &kp T  &kp MINUS  &kp EQUAL  &kp I  &kp O  &kp P
             &kp A  &kp S  &kp D  &kp F  &kp G  &kp R  &kp DELETE  &kp K  &kp L  &to 0
-            &mt2 LEFT_SHIFT Z  &kp X  &kp C  &kp V  &kp B  &mkp MB4  &mkp MB5  &to 0  &to 0  &to 0
+            &mt2 LEFT_SHIFT Z  &kp X  &kp C  &kp V  &kp B  &mkp MB4  &mkp MB5  &kp RIGHT  &to 0  &to 0
             &kp LEFT_CONTROL  &kp LWIN  &kp LEFT_ALT  &kp SPACE  &mkp LCLK  &mkp RCLK  &mkp LCLK  &mkp RCLK  &kp SPACE  &kp RIGHT_ALT  &to 0  &to 0
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
             &mkp LCLK  &mkp RCLK  &to 0  &mkp LCLK  &mkp RCLK  &to 0
