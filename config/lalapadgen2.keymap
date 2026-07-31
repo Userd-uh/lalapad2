@@ -186,7 +186,7 @@
             &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &mt2 MINUS O  &mt2 EQUAL P
             &kp A  &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &mt2 LEFT_BRACKET K  &mt2 RIGHT_BRACKET L  &kp BACKSLASH
             &mt2 LEFT_SHIFT Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &mt2 SEMI COMMA  &mt2 SQT PERIOD  &mt2 RIGHT_SHIFT SLASH
-            &kp LCTRL  &kp LWIN  &kp LALT  &layer_overlay_secondary_space 0 SPACE  &layer_overlay_tertiary  &layer_overlay_secondary  &layer_overlay_secondary  &layer_overlay_tertiary  &layer_overlay_secondary_space 0 SPACE  &kp RALT  &kp RIGHT_CONTROL  &kp BACKSLASH
+            &kp LCTRL  &kp LWIN  &kp LALT  &behavior_42 0 458796  &behavior_41 0 0  &behavior_40 0 0  &behavior_40 0 0  &behavior_41 0 0  &behavior_42 0 458796  &kp RALT  &kp RIGHT_CONTROL  &kp BACKSLASH
             &none  &kp RIGHT  &kp DOWN  &kp LEFT  &kp UP  &kp UP  &kp LEFT  &kp DOWN  &kp RIGHT  &none
             &mkp LCLK  &mkp RCLK  &mkp MCLK  &mkp LCLK  &mkp RCLK  &mkp MCLK
             &kp LA(LEFT)  &kp LA(RIGHT)  &kp LG(TAB)  &kp LG(D)  &kp LCTRL  &mkp MB4  &mkp MB5  &kp LG(TAB)  &kp LG(D)  &kp LCTRL
@@ -210,9 +210,9 @@
             display-name = "tertiary_layer";
             bindings = <
             &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-            &kp LS(NUMBER_6)  &kp LS(NUMBER_7)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp F6  &kp LEFT  &kp UP  &kp RIGHT  &trans  &kp F12
-            &kp LEFT_SHIFT  &kp LS(NUMBER_9)  &kp LS(NUMBER_0)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &trans
-            &kp SEMI  &kp SQT  &kp COMMA  &kp PERIOD  &kp SLASH  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            &kp LS(NUMBER_6)  &kp LS(NUMBER_7)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp F6  &kp LS(NUMBER_1)  &kp UP  &kp LS(NUMBER_2)  &kp LS(NUMBER_3)  &kp F12
+            &kp LEFT_SHIFT  &kp LS(NUMBER_9)  &kp LS(NUMBER_0)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LS(NUMBER_4)  &kp MINUS
+            &kp SEMI  &kp SQT  &kp COMMA  &kp PERIOD  &kp SLASH  &trans  &trans  &trans  &trans  &trans  &kp LS(NUMBER_5)  &kp EQUAL
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -222,9 +222,9 @@
         system_layer {
             display-name = "system_layer";
             bindings = <
-            &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3
-            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &sys_reset  &bootloader  &bt BT_CLR  &bt BT_CLR_ALL  &trans
-            &kp F11  &kp F12  &kp F13  &kp F14  &kp F15  &zip_dyn_scale ZDS_XY ZDS_INC  &zip_dyn_scale ZDS_XY ZDS_DEC  &zip_dyn_scale ZDS_SC ZDS_INC  &zip_dyn_scale ZDS_SC ZDS_DEC  &zip_dyn_scale ZDS_ALL ZDS_RST
+            &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &out TOGGLE_OUTPUTS  &bt SELECT_PROFILE  &bt SELECT_PROFILE 1  &bt SELECT_PROFILE 2  &bt SELECT_PROFILE 3
+            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &sys_reset  &bootloader  &bt CLEAR_SELECTED_PROFILE  &bt CLEAR_ALL_PROFILES  &trans
+            &kp F11  &kp F12  &kp F13  &kp F14  &kp F15  &behavior_39 0 1  &behavior_39 0 2  &behavior_39 1 1  &behavior_39 1 2  &behavior_39 2 3
             &trans  &trans  &trans  &trans  &trans  &trans  &to 0  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
