@@ -227,8 +227,8 @@
             display-name = "tertiary_layer";
             bindings = <
             &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
-            &kp LS(NUMBER_6)  &kp LS(NUMBER_7)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp F6  &kp LS(NUMBER_1)  &kp UP  &kp LS(NUMBER_2)  &kp LS(NUMBER_3)  &kp F12
-            &kp LEFT_SHIFT  &kp LS(NUMBER_9)  &kp LS(NUMBER_0)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LS(NUMBER_4)  &kp MINUS
+            &kp LS(NUMBER_6)  &kp LS(NUMBER_7)  &kp LS(NUMBER_8)  &kp LS(NUMBER_9)  &kp F6  &kp LS(NUMBER_1)  &kp LS(NUMBER_2)  &kp UP  &kp LS(NUMBER_3)  &kp F12
+            &kp LEFT_SHIFT  &kp LS(NUMBER_9)  &kp LS(NUMBER_0)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LS(NUMBER_4)  &kp LEFT  &kp DOWN  &kp RIGHT  &kp MINUS
             &kp LEFT_CONTROL  &kp SQT  &kp COMMA  &kp PERIOD  &kp SLASH  &trans  &trans  &trans  &trans  &kp SEMI  &kp LS(NUMBER_5)  &kp EQUAL
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
