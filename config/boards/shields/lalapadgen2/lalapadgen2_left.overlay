@@ -13,7 +13,7 @@
 
 &trackpad_split_L {
     status = "okay";
-    input = <&iqs9151>;
+    device = <&iqs9151>;
 };
 
 &trackpad_split_R {

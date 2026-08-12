@@ -15,7 +15,7 @@ def test_right_primary_uses_local_right_and_remote_left_listeners():
 def test_left_peripheral_forwards_its_local_trackpad_input():
     overlay = (SHIELD_DIR / "lalapadgen2_left.overlay").read_text(encoding="utf-8")
     assert '&trackpad_split_L {' in overlay
-    assert 'input = <&iqs9151>;' in overlay
+    assert 'device = <&iqs9151>;' in overlay
     assert '&trackpad_split_R {' in overlay
     assert 'status = "disabled";' in overlay
     assert '&trackpad_listener_L {' not in overlay
