@@ -51,7 +51,8 @@ def test_production_firmware_restores_studio_without_debug_logging():
     assert "CONFIG_INPUT_LOG_LEVEL_DBG=y" not in config
     assert "CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=3000" not in config
     assert "shield: lalapadgen2_right rgbled_adapter\n    snippet: studio-rpc-usb-uart" in build
-    assert "repo-path: zmk-driver-iqs9151_mod\n      revision: main" in west
+    # Issue #3 uses an immutable driver revision with independent 3F codes.
+    assert re.search(r"repo-path: zmk-driver-iqs9151_mod\n      revision: [0-9a-f]{40}\n", west)
 
 
 def test_navigation_positions_emit_mouse_buttons_on_active_mouse_layer():

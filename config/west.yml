@@ -18,7 +18,7 @@ manifest:
     - name: zmk-driver-iqs9151
       remote: userduh
       repo-path: zmk-driver-iqs9151_mod
-      revision: main
+      revision: d770887eb89470d3ab2e2bf0736235357134b586
     - name: zmk-easy-charge-indicator
       remote: ShiniNet
       revision: main
