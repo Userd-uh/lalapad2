@@ -25,6 +25,23 @@ def test_two_finger_horizontal_navigation_is_enabled_without_hwheel():
     assert "CONFIG_INPUT_IQS9151_SCROLL_X_ENABLE=y" not in config_lines
 
 
+def test_each_trackpad_has_persistent_four_axis_gesture_modes():
+    expected = {
+        "CONFIG_INPUT_IQS9151_2F_HORIZONTAL_MODE=2",
+        "CONFIG_INPUT_IQS9151_2F_VERTICAL_MODE=1",
+        "CONFIG_INPUT_IQS9151_3F_HORIZONTAL_MODE=2",
+        "CONFIG_INPUT_IQS9151_3F_VERTICAL_MODE=2",
+    }
+    left_path = CONFIG_PATH.parent / "boards" / "shields" / "lalapadgen2" / "lalapadgen2_left.conf"
+    for path in (left_path, RIGHT_CONFIG_PATH):
+        active = {
+            line.strip()
+            for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.lstrip().startswith("#")
+        }
+        assert expected <= active
+
+
 def test_production_firmware_restores_studio_without_debug_logging():
     config = RIGHT_CONFIG_PATH.read_text(encoding="utf-8")
     build = BUILD_PATH.read_text(encoding="utf-8")
