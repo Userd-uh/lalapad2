@@ -7,7 +7,6 @@ RIGHT_CONFIG_PATH = Path(__file__).parents[1] / "config" / "boards" / "shields" 
 BUILD_PATH = Path(__file__).parents[1] / "build.yaml"
 WEST_PATH = Path(__file__).parents[1] / "config" / "west.yml"
 KEYMAP_PATH = Path(__file__).parents[1] / "config" / "lalapadgen2.keymap"
-DEBUG_DRIVER_REVISION = "ea0b07b9e85319bb1461545ab3d8cacda9d7c5a5"
 
 
 def test_two_finger_horizontal_navigation_is_enabled_without_hwheel():
@@ -26,16 +25,16 @@ def test_two_finger_horizontal_navigation_is_enabled_without_hwheel():
     assert "CONFIG_INPUT_IQS9151_SCROLL_X_ENABLE=y" not in config_lines
 
 
-def test_right_firmware_exposes_two_finger_navigation_debug_logs():
+def test_production_firmware_restores_studio_without_debug_logging():
     config = RIGHT_CONFIG_PATH.read_text(encoding="utf-8")
     build = BUILD_PATH.read_text(encoding="utf-8")
     west = WEST_PATH.read_text(encoding="utf-8")
 
-    assert "CONFIG_ZMK_USB_LOGGING=y" in config
-    assert "CONFIG_INPUT_LOG_LEVEL_DBG=y" in config
-    assert "CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=3000" in config
-    assert "shield: lalapadgen2_right rgbled_adapter\n    snippet: zmk-usb-logging" in build
-    assert f"revision: {DEBUG_DRIVER_REVISION}" in west
+    assert "CONFIG_ZMK_USB_LOGGING=y" not in config
+    assert "CONFIG_INPUT_LOG_LEVEL_DBG=y" not in config
+    assert "CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=3000" not in config
+    assert "shield: lalapadgen2_right rgbled_adapter\n    snippet: studio-rpc-usb-uart" in build
+    assert "repo-path: zmk-driver-iqs9151_mod\n      revision: main" in west
 
 
 def test_navigation_positions_emit_mouse_buttons_on_active_mouse_layer():
