@@ -2,6 +2,7 @@ from pathlib import Path
 
 
 CONFIG_PATH = Path(__file__).parents[1] / "config" / "lalapadgen2.conf"
+RIGHT_CONFIG_PATH = Path(__file__).parents[1] / "config" / "boards" / "shields" / "lalapadgen2" / "lalapadgen2_right.conf"
 BUILD_PATH = Path(__file__).parents[1] / "build.yaml"
 WEST_PATH = Path(__file__).parents[1] / "config" / "west.yml"
 DEBUG_DRIVER_REVISION = "ea0b07b9e85319bb1461545ab3d8cacda9d7c5a5"
@@ -20,7 +21,7 @@ def test_two_finger_horizontal_navigation_is_enabled_without_hwheel():
 
 
 def test_right_firmware_exposes_two_finger_navigation_debug_logs():
-    config = CONFIG_PATH.read_text(encoding="utf-8")
+    config = RIGHT_CONFIG_PATH.read_text(encoding="utf-8")
     build = BUILD_PATH.read_text(encoding="utf-8")
     west = WEST_PATH.read_text(encoding="utf-8")
 
