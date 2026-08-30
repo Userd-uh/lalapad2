@@ -44,6 +44,6 @@ def test_navigation_positions_emit_mouse_buttons_on_active_mouse_layer():
 
     assert mouse_layer is not None
     assert re.search(
-        r"&kp LA\(LEFT\)\s+&kp LA\(RIGHT\)(?:\s+&to 0){3}\s+&mkp MB4\s+&mkp MB5",
+        r"&mkp MB4\s+&mkp MB5(?:\s+&to 0){3}\s+&mkp MB4\s+&mkp MB5",
         mouse_layer.group(1),
     )

@@ -217,9 +217,9 @@
         secondary_layer {
             display-name = "secondary_layer";
             bindings = <
-            &trans  &trans  &kp UP  &trans  &trans  &trans  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp MINUS
-            &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans  &kp HASH  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL
-            &kp LEFT_SHIFT  &trans  &trans  &trans  &trans  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_ASTERISK
+            &trans  &trans  &kp UP  &kp LS(NUMBER_6)  &kp LS(NUMBER_2)  &kp KP_NUMLOCK  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp MINUS
+            &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp LS(NUMBER_1)  &kp LS(NUMBER_5)  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL
+            &kp LEFT_SHIFT  &trans  &trans  &trans  &kp LS(GRAVE)  &kp LS(NUMBER_4)  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_ASTERISK
             &kp LEFT_CONTROL  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp NUMBER_0  &kp PERIOD  &kp KP_DIVIDE
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
@@ -262,7 +262,7 @@
             &kp LEFT_CONTROL  &kp LWIN  &kp LEFT_ALT  &kp SPACE  &mkp LCLK  &mkp RCLK  &mkp LCLK  &mkp RCLK  &mouse_to_tertiary  &kp RIGHT_ALT  &to 0  &to 0
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
             &mkp LCLK  &mkp RCLK  &mkp MCLK  &mkp LCLK  &mkp RCLK  &mkp MCLK
-            &kp LA(LEFT)  &kp LA(RIGHT)  &to 0  &to 0  &to 0  &mkp MB4  &mkp MB5  &to 0  &to 0  &to 0
+            &mkp MB4  &mkp MB5  &to 0  &to 0  &to 0  &mkp MB4  &mkp MB5  &to 0  &to 0  &to 0
             >;
         };
     };
