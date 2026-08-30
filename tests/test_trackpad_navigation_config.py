@@ -1,10 +1,12 @@
 from pathlib import Path
+import re
 
 
 CONFIG_PATH = Path(__file__).parents[1] / "config" / "lalapadgen2.conf"
 RIGHT_CONFIG_PATH = Path(__file__).parents[1] / "config" / "boards" / "shields" / "lalapadgen2" / "lalapadgen2_right.conf"
 BUILD_PATH = Path(__file__).parents[1] / "build.yaml"
 WEST_PATH = Path(__file__).parents[1] / "config" / "west.yml"
+KEYMAP_PATH = Path(__file__).parents[1] / "config" / "lalapadgen2.keymap"
 DEBUG_DRIVER_REVISION = "ea0b07b9e85319bb1461545ab3d8cacda9d7c5a5"
 
 
@@ -34,3 +36,14 @@ def test_right_firmware_exposes_two_finger_navigation_debug_logs():
     assert "CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=3000" in config
     assert "shield: lalapadgen2_right rgbled_adapter\n    snippet: zmk-usb-logging" in build
     assert f"revision: {DEBUG_DRIVER_REVISION}" in west
+
+
+def test_navigation_positions_emit_mouse_buttons_on_active_mouse_layer():
+    keymap = KEYMAP_PATH.read_text(encoding="utf-8")
+    mouse_layer = re.search(r"mouse_layer\s*\{.*?bindings\s*=\s*<(.*?)>;", keymap, re.DOTALL)
+
+    assert mouse_layer is not None
+    assert re.search(
+        r"&kp LA\(LEFT\)\s+&kp LA\(RIGHT\)(?:\s+&to 0){3}\s+&mkp MB4\s+&mkp MB5",
+        mouse_layer.group(1),
+    )

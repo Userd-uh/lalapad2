@@ -262,7 +262,7 @@
             &kp LEFT_CONTROL  &kp LWIN  &kp LEFT_ALT  &kp SPACE  &mkp LCLK  &mkp RCLK  &mkp LCLK  &mkp RCLK  &mouse_to_tertiary  &kp RIGHT_ALT  &to 0  &to 0
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
             &mkp LCLK  &mkp RCLK  &mkp MCLK  &mkp LCLK  &mkp RCLK  &mkp MCLK
-            &kp LA(LEFT)  &kp LA(RIGHT)  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
+            &kp LA(LEFT)  &kp LA(RIGHT)  &to 0  &to 0  &to 0  &mkp MB4  &mkp MB5  &to 0  &to 0  &to 0
             >;
         };
     };
