@@ -1,5 +1,35 @@
 # 2本指・3本指スクロールの診断ログ
 
+## 慣性診断版（設定3専用、2026-08-31）
+
+`Build inertia diagnostics (left split3 only)` を実行すると、
+`inertia-diagnostics` 成果物に `lalapadgen2_left-split-3-inertia-diagnostics.uf2`
+が生成される。**左側だけ**に適用する。右側、settings_reset、倍率、
+センサー設定、指離しや慣性の判定ロジックは変更しない。
+
+既存のGOUT（接触中の計算出力）に加えて、診断有効時のみ次を記録する。
+
+- `GIREL version=1 seq/t/fc/history/enabled`: 実際のスクロール終了通知。
+- `GIGATE kind=scroll t/reason/history/recent/gap/window/stale/min/speed`:
+  慣性判定の実際の戻り箇所。reasonは `recent_samples` / `stale_gap` /
+  `zero_total` / `direction_samples` / `slow` / `accepted`。
+  gap=-1は履歴なし。speedは測定速度ではなく設定の最低速度。
+- `GISTART seq/t/seed/active`: 開始関数呼出し後の慣性状態。
+- `GIWORK seq/n/t/scroll/active/elapsed`: 慣性ワーカーの出力（クランプ前）。
+  nはワーカー呼出しの連番。seqは最新接触フレームで、新しい接触連番ではない。
+- `GIREPORT t/code/value/sync/rc`: 実際の入力報告APIの戻り値。
+  code=6は横、8は縦。これは後段プロセッサーやHID/PC受信の成功証拠ではない。
+- `GICANCEL reason=touch`: 通常の接触条件による実行中慣性の取消。
+  すべての取消経路を網羅する記録ではない。
+
+GIRELとGIGATEは同じデバイス時刻tで照合する。GIREPORTは実際の呼出し時刻。
+PC側Raw Inputログとは時計が異なるため、厳密な1イベント対応を仮定しない。
+Windows受信と同時取得し、2F/3Fを別々に、まず各1回の短いスワイプで比較する。
+全指を離した後も数秒記録し、慣性の有無を確認する。
+
+ログ追加による実時間への影響はあり得る。欠落やmessages droppedがある記録は
+確定診断に使わない。GCFGの設定値は起動時読み戻しの再表示である。
+
 ## 診断版と通常版
 
 診断版は `Build gesture diagnostics (left USB only)` ワークフローの
