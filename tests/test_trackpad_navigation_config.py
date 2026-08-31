@@ -32,11 +32,11 @@ def test_each_trackpad_has_persistent_four_axis_gesture_modes():
     }
     left_path = CONFIG_PATH.parent / "boards" / "shields" / "lalapadgen2" / "lalapadgen2_left.conf"
     for path in (left_path, RIGHT_CONFIG_PATH):
-        # User-saved modes: left horizontal gestures scroll; right uses actions.
+        # 2F horizontal differs by side; 3F horizontal scrolls on both halves.
         horizontal_mode = 1 if path == left_path else 2
         expected = expected_common | {
             f"CONFIG_INPUT_IQS9151_2F_HORIZONTAL_MODE={horizontal_mode}",
-            f"CONFIG_INPUT_IQS9151_3F_HORIZONTAL_MODE={horizontal_mode}",
+            "CONFIG_INPUT_IQS9151_3F_HORIZONTAL_MODE=1",
             f"CONFIG_INPUT_IQS9151_SCROLL_X_ENABLE={'y' if horizontal_mode == 1 else 'n'}",
             f"CONFIG_INPUT_IQS9151_2F_HORIZONTAL_NAV={'n' if horizontal_mode == 1 else 'y'}",
         }
