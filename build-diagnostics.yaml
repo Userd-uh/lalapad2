@@ -3,4 +3,4 @@ include:
     shield: lalapadgen2_left rgbled_adapter
     snippet: zmk-usb-logging
     artifact-name: lalapadgen2_left-gesture-diagnostics
-    cmake-args: -DEXTRA_CONF_FILE=gesture-diagnostics.conf
+    cmake-args: -DEXTRA_CONF_FILE=${GITHUB_WORKSPACE}/config/gesture-diagnostics.conf

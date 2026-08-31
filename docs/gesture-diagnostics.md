@@ -53,6 +53,9 @@ cd D:\project\keyboard\lalapad2\lalapad2
 - `GSTEP`: 処理後の上記状態と、実際に計算した `step2`（2本指重心差分）、`step3`（3本指のfinger1差分）。
 - `GOUT`: resultの `started/active/scroll/ended` = scroll_started/scroll_active/scroll_x,y/scroll_ended。
 
+`m3` は内部状態（0=未確定、1=横Scroll、2=縦Scroll、3=Action送信済み）であり、
+エディターの保存モード値とは別物。
+
 連続した無接触フレームは省略するが、指を離すフレームや3→2→3は記録する。
 連番欠落・同じ連番の4行欠落・`messages dropped` はログ欠落を疑う。
 連番はドライバー処理フレームの記録番号であり、センサー割り込みやI2C読取りの取りこぼしは証明できない。

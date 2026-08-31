@@ -70,3 +70,19 @@ def test_navigation_positions_emit_mouse_buttons_on_active_mouse_layer():
         r"&mkp MB4\s+&mkp MB5(?:\s+&to 0){3}\s+&mkp MB4\s+&mkp MB5",
         mouse_layer.group(1),
     )
+
+
+def test_diagnostic_build_is_left_only_and_does_not_override_gestures():
+    root = BUILD_PATH.parent
+    normal = BUILD_PATH.read_text(encoding="utf-8")
+    diagnostic = (root / "build-diagnostics.yaml").read_text(encoding="utf-8")
+    extra = (root / "config/gesture-diagnostics.conf").read_text(encoding="utf-8")
+    assert "gesture-diagnostics" not in normal
+    assert "zmk-usb-logging" not in normal
+    assert "lalapadgen2_left rgbled_adapter" in diagnostic
+    assert "lalapadgen2_right" not in diagnostic
+    assert "snippet: zmk-usb-logging" in diagnostic
+    assert "studio-rpc-usb-uart" not in diagnostic
+    assert "CONFIG_INPUT_IQS9151_GESTURE_DIAGNOSTICS=y" in extra
+    assert "CONFIG_ZMK_STUDIO=n" in extra
+    assert not re.search(r"^CONFIG_.*(?:MODE=|GAIN|SETTINGS_RESET)", extra, re.M)
