@@ -82,7 +82,7 @@ def test_inertia_diagnostic_build_is_left_split3_only():
     matrix = (ROOT / "build-inertia-diagnostics.yaml").read_text()
     assert matrix.count("shield:") == 1
     assert "shield: lalapadgen2_left rgbled_adapter" in matrix
-    assert "artifact-name: lalapadgen2_left-split-3-inertia-diagnostics" in matrix
+    assert "artifact-name: lalapadgen2_left-split-3-release-fix-diagnostics" in matrix
     assert "diagnostic-split-" not in matrix
     assert "config/gesture-diagnostics.conf" in matrix
     assert "inertia-diagnostics" not in (ROOT / "build.yaml").read_text()

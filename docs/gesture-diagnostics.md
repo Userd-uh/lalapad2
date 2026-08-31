@@ -1,8 +1,27 @@
 # 2本指・3本指スクロールの診断ログ
 
-## 慣性診断版（設定3専用、2026-08-31）
+## 3F release修正確認版（設定3専用、2026-08-31）
 
-`Build inertia diagnostics (left split3 only)` を実行すると、
+現在の `Build inertia diagnostics (left split3 only)` は
+`lalapadgen2_left-split-3-release-fix-diagnostics.uf2` を生成する。
+**左だけ**に適用し、右側・settings_resetには書き込まない。
+
+3F Scrollから最初に2/1本へ減った時点の移動履歴と時刻を保存し、全指離脱時に
+その情報で慣性判定する。残指が触れている間に慣性を開始しない。
+本数が増える／3本に戻る場合は古い候補と履歴を破棄する。
+split=3、confidence=20、倍率、60/35msの共通時間しきい値、2F処理は維持する。
+
+- `GISAVE seq/t/fc/history`: 3F release履歴の保存。
+- `GIREL version=2 ... t ... eval ... saved`: tは全指離脱等の実際の終了通知時刻、
+  evalは慣性判定へ渡す時刻。保存済み3F履歴を使う場合はsaved=1。
+- `GIGATE t`はGIRELのevalに対応する。GISTART/GIWORKは実際の開始・出力を示す。
+
+同じExcelで2Fの通常慣性を維持し、3Fが全指離脱後に継続することを実機確認する。
+接触中の弱さは別の未解決範囲であり、修正成功と混同しない。
+
+## 以前の観測専用慣性診断版（設定3、2026-08-31）
+
+修正前の `Build inertia diagnostics (left split3 only)` では、
 `inertia-diagnostics` 成果物に `lalapadgen2_left-split-3-inertia-diagnostics.uf2`
 が生成される。**左側だけ**に適用する。右側、settings_reset、倍率、
 センサー設定、指離しや慣性の判定ロジックは変更しない。
