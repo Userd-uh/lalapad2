@@ -4,6 +4,8 @@ param(
     [string]$Port,
     [ValidateRange(1, 600)]
     [int]$Seconds = 30,
+    [ValidateRange(0, 20)]
+    [int]$ExpectedReleases = 0,
     [string]$OutputPath = (Join-Path $PSScriptRoot ("gesture-{0}.log" -f (Get-Date -Format 'yyyyMMdd-HHmmss')))
 )
 $ErrorActionPreference = 'Stop'
@@ -15,6 +17,8 @@ $serial.NewLine = "`n"
 $writer = $null
 $stream = $null
 $lines = 0
+$lastFingerCount = 0
+$releases = 0
 try {
     # CreateNew refuses to overwrite an earlier capture.
     $stream = [System.IO.File]::Open([IO.Path]::GetFullPath($OutputPath),
@@ -36,7 +40,17 @@ try {
         try {
             $line = $serial.ReadLine()
             $writer.WriteLine($line.TrimEnd("`r"))
-            if ($line -match 'GIN seq=') { $lines++ }
+            if ($line -match '\bGIN seq=(\d+) t=(\d+) fc=(\d+) ') {
+                $lines++
+                $sequence = $Matches[1]
+                $deviceTime = $Matches[2]
+                $fingerCount = [int]$Matches[3]
+                if ($fingerCount -eq 0 -and $lastFingerCount -gt 0) {
+                    $releases++
+                    Write-Host "ALL FINGERS RELEASED: $releases (seq=$sequence, t=$deviceTime). Wait 2 seconds before the next trial."
+                }
+                $lastFingerCount = $fingerCount
+            }
         } catch [TimeoutException] {
             # No frame while idle is expected.
         }
@@ -48,6 +62,10 @@ try {
     if ($null -ne $stream) { $stream.Dispose() }
 }
 Write-Host "Saved $lines gesture frames: $([IO.Path]::GetFullPath($OutputPath))"
+Write-Host "Observed full releases: $releases"
+if ($ExpectedReleases -gt 0 -and $releases -ne $ExpectedReleases) {
+    Write-Warning "Expected $ExpectedReleases releases but observed $releases. Do not treat this as $ExpectedReleases independent trials."
+}
 if ($lines -eq 0) {
     Write-Warning 'No gesture frames. Check the LEFT USB connection, diagnostic firmware and COM port.'
 }

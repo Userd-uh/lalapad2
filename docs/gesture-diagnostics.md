@@ -3,8 +3,11 @@
 ## 診断版と通常版
 
 診断版は `Build gesture diagnostics (left USB only)` ワークフローの
-`gesture-diagnostics` 成果物にある `lalapadgen2_left-gesture-diagnostics.uf2`。
+`gesture-diagnostics` 成果物にある `lalapadgen2_left-split-3-baseline.uf2`
+（以前の診断版のファイル名は `lalapadgen2_left-gesture-diagnostics.uf2`）。
 **左側にだけ**書き込む。右側は通常版のまま使う。settings_reset は使用しない。
+
+指分離値の比較版（2/3/4）を使う場合は [自然な指配置での比較手順](gesture-split-comparison.md) を参照。
 
 左側では2本指・3本指の横方向がともに Scroll。右側の2本指横方向は Action のため、
 今回は設定を変更せず左側で比較する。左右でセンサー挙動が違う可能性は残るため、

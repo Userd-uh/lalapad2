@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - config/gesture-diagnostics.conf
+      - config/diagnostic-split-*.conf
       - build-diagnostics.yaml
       - .github/workflows/gesture-diagnostics.yml
 jobs:

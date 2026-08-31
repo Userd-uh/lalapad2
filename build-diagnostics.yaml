@@ -2,5 +2,15 @@ include:
   - board: seeeduino_xiao_ble
     shield: lalapadgen2_left rgbled_adapter
     snippet: zmk-usb-logging
-    artifact-name: lalapadgen2_left-gesture-diagnostics
+    artifact-name: lalapadgen2_left-split-3-baseline
     cmake-args: -DEXTRA_CONF_FILE=${GITHUB_WORKSPACE}/config/gesture-diagnostics.conf
+  - board: seeeduino_xiao_ble
+    shield: lalapadgen2_left rgbled_adapter
+    snippet: zmk-usb-logging
+    artifact-name: lalapadgen2_left-split-2
+    cmake-args: -DEXTRA_CONF_FILE="${GITHUB_WORKSPACE}/config/gesture-diagnostics.conf;${GITHUB_WORKSPACE}/config/diagnostic-split-2.conf"
+  - board: seeeduino_xiao_ble
+    shield: lalapadgen2_left rgbled_adapter
+    snippet: zmk-usb-logging
+    artifact-name: lalapadgen2_left-split-4
+    cmake-args: -DEXTRA_CONF_FILE="${GITHUB_WORKSPACE}/config/gesture-diagnostics.conf;${GITHUB_WORKSPACE}/config/diagnostic-split-4.conf"
