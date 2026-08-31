@@ -1,0 +1,6 @@
+include:
+  - board: seeeduino_xiao_ble
+    shield: lalapadgen2_left rgbled_adapter
+    snippet: zmk-usb-logging
+    artifact-name: lalapadgen2_left-split-3-release-fix-diagnostics
+    cmake-args: -DEXTRA_CONF_FILE=${GITHUB_WORKSPACE}/config/gesture-diagnostics.conf

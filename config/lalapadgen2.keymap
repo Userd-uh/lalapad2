@@ -211,6 +211,7 @@
             &none  &kp RIGHT  &kp DOWN  &kp LEFT  &kp UP  &kp UP  &kp LEFT  &kp DOWN  &kp RIGHT  &none
             &mkp LCLK  &mkp RCLK  &mkp MCLK  &mkp LCLK  &mkp RCLK  &mkp MCLK
             &kp LA(LEFT)  &kp LA(RIGHT)  &kp LG(TAB)  &kp LG(D)  &kp LCTRL  &mkp MB4  &mkp MB5  &kp LG(TAB)  &kp LG(D)  &kp LCTRL
+            &kp LA(LEFT)  &kp LA(RIGHT)  &kp LG(TAB)  &kp LG(D)  &mkp MB4  &mkp MB5  &kp LG(TAB)  &kp LG(D)
             >;
         };
 
@@ -224,6 +225,7 @@
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
             &kp LEFT  &kp RIGHT  &trans  &trans  &trans  &kp LEFT  &kp RIGHT  &trans  &trans  &trans
+            &kp LEFT  &kp RIGHT  &trans  &trans  &kp LEFT  &kp RIGHT  &trans  &trans
             >;
         };
 
@@ -237,6 +239,7 @@
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -250,6 +253,7 @@
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans
             &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
@@ -263,6 +267,7 @@
             &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0  &to 0
             &mkp LCLK  &mkp RCLK  &mkp MCLK  &mkp LCLK  &mkp RCLK  &mkp MCLK
             &mkp MB4  &mkp MB5  &to 0  &to 0  &to 0  &mkp MB4  &mkp MB5  &to 0  &to 0  &to 0
+            &mkp MB4  &mkp MB5  &to 0  &to 0  &mkp MB4  &mkp MB5  &to 0  &to 0
             >;
         };
     };

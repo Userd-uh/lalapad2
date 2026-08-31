@@ -25,6 +25,29 @@ def test_two_finger_horizontal_navigation_is_enabled_without_hwheel():
     assert "CONFIG_INPUT_IQS9151_SCROLL_X_ENABLE=y" not in config_lines
 
 
+def test_each_trackpad_has_persistent_four_axis_gesture_modes():
+    expected_common = {
+        "CONFIG_INPUT_IQS9151_2F_VERTICAL_MODE=1",
+        "CONFIG_INPUT_IQS9151_3F_VERTICAL_MODE=2",
+    }
+    left_path = CONFIG_PATH.parent / "boards" / "shields" / "lalapadgen2" / "lalapadgen2_left.conf"
+    for path in (left_path, RIGHT_CONFIG_PATH):
+        # 2F horizontal differs by side; 3F horizontal scrolls on both halves.
+        horizontal_mode = 1 if path == left_path else 2
+        expected = expected_common | {
+            f"CONFIG_INPUT_IQS9151_2F_HORIZONTAL_MODE={horizontal_mode}",
+            "CONFIG_INPUT_IQS9151_3F_HORIZONTAL_MODE=1",
+            f"CONFIG_INPUT_IQS9151_SCROLL_X_ENABLE={'y' if horizontal_mode == 1 else 'n'}",
+            f"CONFIG_INPUT_IQS9151_2F_HORIZONTAL_NAV={'n' if horizontal_mode == 1 else 'y'}",
+        }
+        active = {
+            line.strip()
+            for line in path.read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.lstrip().startswith("#")
+        }
+        assert expected <= active
+
+
 def test_production_firmware_restores_studio_without_debug_logging():
     config = RIGHT_CONFIG_PATH.read_text(encoding="utf-8")
     build = BUILD_PATH.read_text(encoding="utf-8")
@@ -34,7 +57,8 @@ def test_production_firmware_restores_studio_without_debug_logging():
     assert "CONFIG_INPUT_LOG_LEVEL_DBG=y" not in config
     assert "CONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=3000" not in config
     assert "shield: lalapadgen2_right rgbled_adapter\n    snippet: studio-rpc-usb-uart" in build
-    assert "repo-path: zmk-driver-iqs9151_mod\n      revision: main" in west
+    # Issue #3 uses an immutable driver revision with independent 3F codes.
+    assert re.search(r"repo-path: zmk-driver-iqs9151_mod\n      revision: [0-9a-f]{40}\n", west)
 
 
 def test_navigation_positions_emit_mouse_buttons_on_active_mouse_layer():
@@ -46,3 +70,19 @@ def test_navigation_positions_emit_mouse_buttons_on_active_mouse_layer():
         r"&mkp MB4\s+&mkp MB5(?:\s+&to 0){3}\s+&mkp MB4\s+&mkp MB5",
         mouse_layer.group(1),
     )
+
+
+def test_diagnostic_build_is_left_only_and_does_not_override_gestures():
+    root = BUILD_PATH.parent
+    normal = BUILD_PATH.read_text(encoding="utf-8")
+    diagnostic = (root / "build-diagnostics.yaml").read_text(encoding="utf-8")
+    extra = (root / "config/gesture-diagnostics.conf").read_text(encoding="utf-8")
+    assert "gesture-diagnostics" not in normal
+    assert "zmk-usb-logging" not in normal
+    assert "lalapadgen2_left rgbled_adapter" in diagnostic
+    assert "lalapadgen2_right" not in diagnostic
+    assert "snippet: zmk-usb-logging" in diagnostic
+    assert "studio-rpc-usb-uart" not in diagnostic
+    assert "CONFIG_INPUT_IQS9151_GESTURE_DIAGNOSTICS=y" in extra
+    assert "CONFIG_ZMK_STUDIO=n" in extra
+    assert not re.search(r"^CONFIG_.*(?:MODE=|GAIN|SETTINGS_RESET)", extra, re.M)
