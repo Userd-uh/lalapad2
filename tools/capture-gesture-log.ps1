@@ -22,6 +22,14 @@ try {
     $writer = [System.IO.StreamWriter]::new($stream, [Text.UTF8Encoding]::new($false))
     $writer.AutoFlush = $true
     $serial.Open()
+    Write-Host 'Keep all fingers OFF the pad. Clearing buffered old logs for 2 seconds...'
+    $drainTimer = [Diagnostics.Stopwatch]::StartNew()
+    while ($drainTimer.Elapsed.TotalSeconds -lt 2) {
+        $null = $serial.ReadExisting()
+        [Threading.Thread]::Sleep(10)
+    }
+    $serial.DiscardInBuffer()
+    $writer.WriteLine("# Capture started: $([DateTimeOffset]::Now.ToString('o')); port=$Port; seconds=$Seconds")
     Write-Host "Recording $Port for $Seconds seconds. Perform the gesture now."
     $timer = [Diagnostics.Stopwatch]::StartNew()
     while ($timer.Elapsed.TotalSeconds -lt $Seconds) {
@@ -33,6 +41,7 @@ try {
             # No frame while idle is expected.
         }
     }
+    $writer.WriteLine("# Capture ended: $([DateTimeOffset]::Now.ToString('o')); GIN frames=$lines")
 } finally {
     $serial.Dispose()
     if ($null -ne $writer) { $writer.Dispose() }
