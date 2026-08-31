@@ -18,8 +18,15 @@ The old 68 positions retain their indices; 8 new 3F positions are appended:
 | 3F right / left / up / down | 68 / 69 / 70 / 71 | 72 / 73 / 74 / 75 |
 
 New 3F defaults copy the previous directional bindings, including mouse-layer
-bindings. Tap and pinch positions are unchanged. 3F Scroll sends direct relative
-wheel events; 2F smoothing/inertia integration is intentionally not included.
+bindings. Tap and pinch positions are unchanged. Following the Excel hardware
+comparison, 3F Scroll now uses the same relative-event reporting, velocity
+history and fixed-point inertia worker as 2F. Downstream scaling and its
+fractional remainders remain shared and unchanged. No new gain is introduced.
+3F retains its existing directional recognition and owns staged release until
+all fingers lift; inertia starts only once, if the shared recent-motion gate
+passes. Native tests do not prove Windows/Excel scroll feel: compare 2F/3F on
+the same half, layer and application after flashing. Precision-touchpad input
+emulation remains out of scope.
 
 ## Upgrade and verification
 
